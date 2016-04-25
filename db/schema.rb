@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160425194327) do
   create_table "events", force: true do |t|
     t.integer  "user_id"
     t.string   "location"
-    t.text     "describe"
+    t.string   "describe"
     t.integer  "discount"
     t.string   "store"
     t.datetime "created_at"
