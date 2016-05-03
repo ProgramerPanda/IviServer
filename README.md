@@ -1,3 +1,5 @@
+Przykładowe Zapytania do servera
+
 curl -H "Content-Type: application/json" \
 -X POST -d '{"client_id":"3be31b188f33137ddaaa55f32a5e5ba63eb9254b6a7de720d5b0d85d68062231",
  "client_secret":"17f49902fe8f17cc43274745494be1b5cc663a464b2d93ba0bf3a3ed16a1158c",
