@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425194327) do
+ActiveRecord::Schema.define(version: 20160504031617) do
+
+  create_table "comments", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "events", force: true do |t|
     t.integer  "user_id"
@@ -22,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160425194327) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "oauth_access_grants", force: true do |t|
     t.integer  "resource_owner_id", null: false

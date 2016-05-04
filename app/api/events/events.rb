@@ -42,7 +42,7 @@ module Events
                end
                get ':location' do
                  Event.where(location: params[:location])
-                # Event.where(params[:location])
+                
                end
              end
     end

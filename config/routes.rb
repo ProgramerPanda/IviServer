@@ -4,5 +4,6 @@ IVI::Application.routes.draw do
   use_doorkeeper
   mount Users::UsersController => '/api'
   mount Events::EventsController => '/api/events'
+  mount Comments::CommentsController => '/api/comments'
 
 end

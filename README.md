@@ -1,23 +1,49 @@
 Przykładowe Zapytania do servera
+<--Logowanie-->
 
 curl -H "Content-Type: application/json" \
--X POST -d '{"client_id":"3be31b188f33137ddaaa55f32a5e5ba63eb9254b6a7de720d5b0d85d68062231",
- "client_secret":"17f49902fe8f17cc43274745494be1b5cc663a464b2d93ba0bf3a3ed16a1158c",
+-X POST -d '{"client_id":"app_id",
+ "client_secret":"secret_id",
  "grant_type":"password",
  "password":"12345678",
  "username":"sierra@a.com"}' \
  http://localhost:3000/oauth/token
+ 
+ <--Rejestracja-->
+ 
+ curl -H "Content-Type: application/json" \
+-X POST \
+-d '{"first_name":"Kathy",
+"last_name":"Sierra",
+"profile_name":"sierra_official",
+"email":"sierra@a.com",
+"password":"12345678",
+"password_confirmation":"12345678"}' \
+http://localhost:3000/api/v1/users/sign_up
 
+<--Eventy-->
+ <-Add->
 
-
-curl -H 'Content-Type: application/json' -H 'Authorization: Bearer 4295a3dbf306b7943b674e02f78a5e795bf43b2f976f76ef5bc6a5b697d1565c' \
+ curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -d '{"location":"Wisla", "describe":"2 za 1","discount":50, "store":"empik"}' -X POST http://localhost:3000/api/events/do_event
 
-curl -H 'Authorization: Bearer 4295a3dbf306b7943b674e02f78a5e795bf43b2f976f76ef5bc6a5b697d1565c' \
+ <-Delete->
+curl -H 'Authorization: Bearer <token>' \
 -X DELETE http://localhost:3000/api/events/delete_event/1
 
-curl -H 'Content-Type: application/json' -H 'Authorization: Bearer 4295a3dbf306b7943b674e02f78a5e795bf43b2f976f76ef5bc6a5b697d1565c' \
+ <-find->
+curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -X GET http://localhost:3000/api/find_event/Wisla
 
+<--Komentarze-->
+ <-Add->
+curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
+-d '{"content":"To jest chujowe", "event_id":2}' -X POST http://localhost:3000/api/comments/do_comment
 
+<-find->
+curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
+-X GET http://localhost:3000/api/comments/find_comments_for/1
 
+<-Delete->
+curl -H 'Authorization: Bearer <token>' \
+-X DELETE http://localhost:3000/api/comments/delete_comment/1
