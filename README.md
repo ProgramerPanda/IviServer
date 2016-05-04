@@ -1,5 +1,6 @@
 Przykładowe Zapytania do servera
-<--Logowanie-->
+
+ <--Logowanie-->
 
 curl -H "Content-Type: application/json" \
 -X POST -d '{"client_id":"app_id",
@@ -22,28 +23,35 @@ curl -H "Content-Type: application/json" \
 http://localhost:3000/api/v1/users/sign_up
 
 <--Eventy-->
- <-Add->
+
+  <-Add->
 
  curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -d '{"location":"Wisla", "describe":"2 za 1","discount":50, "store":"empik"}' -X POST http://localhost:3000/api/events/do_event
 
- <-Delete->
+  <-Delete->
+  
 curl -H 'Authorization: Bearer <token>' \
 -X DELETE http://localhost:3000/api/events/delete_event/1
 
- <-find->
+  <-find->
+  
 curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -X GET http://localhost:3000/api/find_event/Wisla
 
 <--Komentarze-->
- <-Add->
+
+  <-Add->
+  
 curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -d '{"content":"To jest chujowe", "event_id":2}' -X POST http://localhost:3000/api/comments/do_comment
 
-<-find->
+  <-find->
+  
 curl -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>' \
 -X GET http://localhost:3000/api/comments/find_comments_for/1
 
-<-Delete->
+  <-Delete->
+  
 curl -H 'Authorization: Bearer <token>' \
 -X DELETE http://localhost:3000/api/comments/delete_comment/1
