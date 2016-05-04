@@ -15,6 +15,10 @@ module Users
 		 	error!({ error: e.message }, 404)
 		 end
 
+		 rescue_from ActiveRecord::RecordInvalid do |e|
+			 error!({error: e.message }, 404)
+		 end
+
 		resource :users do
 
 			desc 'Get infromation about resource owner'
@@ -57,7 +61,7 @@ module Users
 
 
 
-			
+
 
 		end
 	end

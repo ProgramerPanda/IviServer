@@ -4,6 +4,20 @@ module Comments
         format :json
         use ::WineBouncer::OAuth2
 
+        default_error_status 400
+
+    		rescue_from WineBouncer::Errors::OAuthUnauthorizedError do |e|
+    			error!({ error: e.message }, 401)
+    		end
+
+    		 rescue_from ActiveRecord::RecordNotFound do |e|
+    		 	error!({ error: e.message }, 404)
+    		 end
+
+         rescue_from ActiveRecord::RecordInvalid do |e|
+           error!({ error: e.message }, 404)
+         end
+
         resource :do_comment do
           oauth2
           params do
