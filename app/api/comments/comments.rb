@@ -1,7 +1,8 @@
 module Comments
     class CommentsController < Grape::API
-        version 'v1', using: :header, vendor: 'some_vendor'
+      version 'v1', using: :path
         format :json
+        formatter :json, Grape::Formatter::ActiveModelSerializers
         use ::WineBouncer::OAuth2
 
         default_error_status 400
@@ -18,41 +19,54 @@ module Comments
            error!({ error: e.message }, 404)
          end
 
-        resource :do_comment do
+
+        resource :comments do
+
+          desc 'add comment'
           oauth2
           params do
             requires :content, type: String, desc: 'content'
             requires :event_id, type: Integer, desc: 'id_eventu'
             end
-           post do
+           post :do_comment do
              Comment.create!({
                user_id: resource_owner.id,
                content: params[:content],
                event_id: params[:event_id]
                })
             end
-          end
 
-
-
-             resource :delete_comment do
+              desc 'add comment'
                oauth2
                params do
                 requires :id, type: Integer, desc: 'Id eventu'
                end
-               delete ':id' do
+               delete :delete do
                  Comment.find(params[:id]).destroy
                end
-             end
 
-             resource :find_comments_for do
+              desc 'find comment'
                oauth2
                params do
                  requires :id, type: Integer, desc: 'Id eventu'
                end
-               get ':id' do
+               get :find do
                  Comment.where(event_id: params[:id])
                end
-             end
+
+               desc 'update coment'
+               oauth2
+               params do
+                 requires :id, type: Integer, desc: 'comment_id'
+                 requires :content, type: String, desc: 'content'
+                 requires :event_id, type: Integer, desc: 'id_eventu'
+               end
+               put :update do
+                 resource_owner.comments.find(params[:id]).update({
+                   content: params[:content]
+                   })
+               end
+
+        end
     end
   end
