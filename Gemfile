@@ -16,17 +16,17 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'protected_attributes'
 
-#gem 'font-awesome-sass', '~> 4.4.0'
+gem 'font-awesome-sass', '~> 4.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.13'
 
 
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
-#gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -49,8 +49,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'doorkeeper'
 gem 'grape'
 gem 'wine_bouncer', '~> 0.5.0'
-gem 'rails_12factor', group: :production
-
 
 gem 'active_model_serializers'#, '~> 0.8.0'
 gem 'grape-active_model_serializers'#, '< 1.2.1'
