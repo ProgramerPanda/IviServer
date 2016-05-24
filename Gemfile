@@ -16,7 +16,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'protected_attributes'
 
-gem 'font-awesome-sass', '~> 4.4.0'
+#gem 'font-awesome-sass', '~> 4.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.13'
@@ -26,7 +26,7 @@ gem 'rails', '4.1.13'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+#gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
