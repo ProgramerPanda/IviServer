@@ -49,6 +49,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'doorkeeper'
 gem 'grape'
 gem 'wine_bouncer', '~> 0.5.0'
+gem 'rails_12factor', group: :production
+
 
 gem 'active_model_serializers'#, '~> 0.8.0'
 gem 'grape-active_model_serializers'#, '< 1.2.1'
