@@ -49,15 +49,15 @@ module Users
 				User.find_by(profile_name: params[:username])
 			end
 
-
+			resource :id do
 				desc 'Get user by id'
 				params do
 					requires :id, type: Integer, desc: 'user id'
 				end
-				get :find, root: false, serializer: UserShortSerializer do
+				get ':id', root: false, serializer: UserShortSerializer do
 					User.find(params[:id])
 				end
-
+			end
 
 
 
