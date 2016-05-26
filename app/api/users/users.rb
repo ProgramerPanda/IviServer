@@ -58,11 +58,6 @@ module Users
 					User.find(params[:id])
 				end
 			end
-
-
-
-
-
 		end
 	end
 end
