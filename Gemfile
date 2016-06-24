@@ -52,20 +52,3 @@ gem 'wine_bouncer', '~> 0.5.0'
 
 gem 'active_model_serializers'#, '~> 0.8.0'
 gem 'grape-active_model_serializers'#, '< 1.2.1'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
