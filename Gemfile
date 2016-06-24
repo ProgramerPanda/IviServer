@@ -22,7 +22,6 @@ gem 'font-awesome-sass', '~> 4.4.0'
 gem 'rails', '4.1.13'
 
 
-# Use sqlite3 as the database for Active Record
 gem "pg"
 gem 'sinatra', '1.0'
 
