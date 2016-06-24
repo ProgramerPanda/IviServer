@@ -16,6 +16,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'protected_attributes'
 
+gem 'font-awesome-sass', '~> 4.4.0'
+
+gem 'sass-rails', '~> 4.0.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
