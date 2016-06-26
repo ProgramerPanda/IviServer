@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :first_name, :last_name, :profile_name, :full_name, :id
-  # attr_accessible :title, :body
 
+  has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner                
 
   validates :first_name, presence: true
 
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     profile_name
   end
 
-  
+
 
   def gravatar_url
     stripped_email = email.strip

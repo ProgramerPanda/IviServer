@@ -43,6 +43,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'heroku'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -52,6 +54,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'doorkeeper'
 gem 'grape'
 gem 'wine_bouncer', '~> 0.5.0'
+
+
+gem 'rails_12factor'
+
 
 gem 'active_model_serializers'#, '~> 0.8.0'
 gem 'grape-active_model_serializers'#, '< 1.2.1'

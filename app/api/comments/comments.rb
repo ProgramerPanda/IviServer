@@ -51,8 +51,10 @@ module Comments
            params do
              #requires :id, type: Integer, desc: 'Id eventu'
            end
-           get 'find_comments_for/:id' do
-             Comment.where(event_id: params[:id])
+           get 'find_comments_for/:id' do             
+             Comment.joins("LEFT JOIN users ON comments.user_id = users.id")
+             .select('comments.event_id, comments.content, comments.created_at, comments.updated_at, users.profile_name')
+             .where(event_id: params[:id])
            end
 
 

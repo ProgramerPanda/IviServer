@@ -31,6 +31,7 @@ module Events
            post 'do_event' do
              Event.create!({
                user_id: resource_owner.id,
+               user: resource_owner,
                location: params[:location],
                describe: params[:describe],
                discount: params[:discount],
@@ -55,7 +56,9 @@ module Events
             requires :location, type: String, desc: 'Lokalizacja'
           end
           get 'find_event/:location' do
-            Event.where(location: params[:location])
+            Event.joins("LEFT JOIN users ON events.user_id = users.id")
+            .select('events.location, events.describe, events.store, users.profile_name')
+            .where(location: params[:location])
           end
 
 
@@ -75,5 +78,3 @@ module Events
         end
     end
 end
-
-
