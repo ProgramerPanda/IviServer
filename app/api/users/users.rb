@@ -23,7 +23,7 @@ module Users
 
 			desc 'Get infromation about resource owner'
 			oauth2
-			get :me, root: false, serializer: UserShortSerializer do
+			get :me do
 				resource_owner
 			end
 
@@ -44,7 +44,7 @@ module Users
 			params do
 				requires :id, type: Integer, desc: 'user_id'
 			end
-			get ':id', proot: false, serializer: UserSerializer do
+			get ':id', proot: false, serializer: UserShortSerializer do
 				User.find(params[:id])
 			end
 
