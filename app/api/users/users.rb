@@ -42,7 +42,7 @@ module Users
 
 			desc 'user by id'
 			params do
-				requires :id, type Integer, desc: 'user_id'
+				requires :id, type: Integer, desc: 'user_id'
 			end
 			get ':id', proot: false, serializer: UserSerializer do
 				User.find(params[:id])
