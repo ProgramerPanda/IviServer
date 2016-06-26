@@ -40,23 +40,21 @@ module Users
 				User.create!(params)
 			end
 
+			desc 'user by id'
+			params do
+				requires :id, type Integer, desc: 'user_id'
+			end
+			get ':id', proot: false, serializer: UserSerializer do
+				User.find(params[:id])
+			end
+
 
 			desc 'Get user by username'
 			params do
 				requires :username, type: String, desc: 'Username'
 			end
-			get ':username', proot: false, serializer: UserShortSerializer do
+			get ':username', proot: false, serializer: UserSerializer do
 				User.find_by(profile_name: params[:username])
-			end
-
-			resource :id do
-				desc 'Get user by id'
-				params do
-					requires :id, type: Integer, desc: 'user id'
-				end
-				get ':id', root: false, serializer: UserShortSerializer do
-					User.find(params[:id])
-				end
 			end
 		end
 	end
